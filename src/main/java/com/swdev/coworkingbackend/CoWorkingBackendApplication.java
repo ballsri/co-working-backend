@@ -13,9 +13,4 @@ public class CoWorkingBackendApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CoWorkingBackendApplication.class, args);
 	}
-
-	@GetMapping("/ping")
-	public String ping(){
-		return String.format("the server is up and responding to ping");
-	}
 }
