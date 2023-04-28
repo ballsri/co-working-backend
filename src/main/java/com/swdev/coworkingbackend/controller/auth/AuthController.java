@@ -18,13 +18,14 @@ public class AuthController {
     @PostMapping(value= "/login", consumes = "application/json", produces = "application/json")
     public @ResponseBody responseDto login(@RequestBody loginDto loginDto){
 
-        User user = authService.login(loginDto);
+        String token = authService.login(loginDto);
 
-        if(user == null){
+        if(token == null){
             return new responseDto(false, "login failed", null);
         }
 
-        return new responseDto(true, "login successfully", user);
+
+        return new responseDto(true, "login successfully", token);
     }
 
     @PostMapping("/register")
