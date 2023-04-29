@@ -29,9 +29,9 @@ public class AuthService {
         }
 
         // check if password is correct
-//        if(!passwordEncoder.matches(loginDto.getPassword(), user.getPassword())){
-//            return null;
-//        }
+        if(!passwordEncoder.matches(loginDto.getPassword(), user.getPassword())){
+            return null;
+        }
 
         // generate token from user
         Map<String, String> claims = new HashMap<>();
