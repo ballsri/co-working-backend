@@ -1,31 +1,26 @@
-package com.swdev.coworkingbackend.model;
+package com.swdev.coworkingbackend.dto.auth;
+
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
-
-@Document(collection= "users")
-public class User {
-    @Id
-    private String id;
-    @Field("name")
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
+public class registerDto {
+    @JsonProperty("name")
     private String name;
-    @Indexed(unique = true)
-    @Field("email")
+    @JsonProperty("email")
     private String email;
-    @Field("password")
+    @JsonProperty("password")
     private String password;
-    @Field("phone")
+    @JsonProperty("phone")
     private String phone;
-    @Field("role")
+    @JsonProperty("role")
     private String role;
 
-    public User() {
+    public registerDto() {
     }
 
-    public User(String name, String email, String password, String phone, String role) {
+    public registerDto(String name, String email, String password, String phone, String role) {
         this.name = name;
         this.email = email;
         this.password = password;
@@ -55,13 +50,12 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "registerDto{" +
                 "name='" + name + '\'' +
-                ", email=" + email +
+                ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", phone='" + phone + '\'' +
                 ", role='" + role + '\'' +
                 '}';
     }
-
 }

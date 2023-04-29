@@ -3,7 +3,7 @@ package com.swdev.coworkingbackend.controller.coworking.room;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Random;
-
+@RestController
 @RequestMapping("/api/v1/coworking/{coworkingId}/room/{roomId}/reservation")
 public class RoomReservationController {
     @GetMapping("/")

@@ -1,6 +1,7 @@
 package com.swdev.coworkingbackend.controller.auth;
 
 import com.swdev.coworkingbackend.dto.auth.loginDto;
+import com.swdev.coworkingbackend.dto.auth.registerDto;
 import com.swdev.coworkingbackend.dto.responseDto;
 import com.swdev.coworkingbackend.model.User;
 import com.swdev.coworkingbackend.service.AuthService;
@@ -28,7 +29,12 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public String register(){
-        return String.format("register successfully");
+    public @ResponseBody responseDto register(@RequestBody registerDto registerDto){
+        // TODO: 28/4/2023 AD implement register :NATTS
+        List<String> errors = authService.register(registerDto);
+        if(!errors.isEmpty()){
+            return new responseDto(false, "register failed", errors);
+        }
+        return new responseDto(true, "register successfully", null);
     }
 }
